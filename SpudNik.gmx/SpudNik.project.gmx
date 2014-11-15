@@ -13,6 +13,7 @@
     <sprite>sprites\sButton</sprite>
     <sprite>sprites\sSpawnPoint</sprite>
     <sprite>sprites\sprite6</sprite>
+    <sprite>sprites\sprite7</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -44,6 +45,7 @@
       <object>objects\oButton</object>
       <object>objects\oPlayButton</object>
     </objects>
+    <object>objects\oGoal</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTitle</room>
