@@ -15,6 +15,8 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\getStartDir.gml</script>
+    <script>scripts\playerMove.gml</script>
+    <script>scripts\reachGoal.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Player">
