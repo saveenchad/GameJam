@@ -12,6 +12,10 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\oPlayer</object>
+    <object>objects\oWall</object>
+  </objects>
   <help>
     <rtf>help.rtf</rtf>
   </help>
