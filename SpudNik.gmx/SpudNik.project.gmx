@@ -30,7 +30,6 @@
     <background>background\bgSpace1</background>
     <background>background\bgSpace2</background>
     <background>background\bgSpace3</background>
-    <background>background\bgGameName</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -66,6 +65,7 @@
       <object>objects\opControl</object>
       <object>objects\oGameTitle</object>
     </objects>
+      <object>objects\oMetalBar</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTitle</room>
