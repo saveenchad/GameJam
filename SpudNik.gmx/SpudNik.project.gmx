@@ -57,8 +57,8 @@
       <object>objects\oButton</object>
       <object>objects\oPlayButton</object>
       <object>objects\oLevelButton</object>
-      <object>objects\oMetalBar</object>
     </objects>
+    <object>objects\oMetalBar</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTitle</room>
