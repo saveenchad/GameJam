@@ -9,6 +9,7 @@
     <sprite>sprites\sPlayer</sprite>
     <sprite>sprites\sWall</sprite>
     <sprite>sprites\sError</sprite>
+    <sprite>sprites\sAstroid</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -16,8 +17,11 @@
     <script>scripts\getStartDir.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\oPlayer</object>
+    <objects name="Player">
+      <object>objects\oPlayer</object>
+    </objects>
     <object>objects\oWall</object>
+    <object>objects\oMassBody</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
