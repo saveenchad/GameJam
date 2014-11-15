@@ -10,24 +10,50 @@
     <sprite>sprites\sWall</sprite>
     <sprite>sprites\sError</sprite>
     <sprite>sprites\sAstroid</sprite>
+    <sprite>sprites\sButton</sprite>
+    <sprite>sprites\sSpawnPoint</sprite>
+    <sprite>sprites\sprite6</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+    <background>background\bgGameName</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\getStartDir.gml</script>
     <script>scripts\playerMove.gml</script>
     <script>scripts\reachGoal.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fontButton</font>
+  </fonts>
   <objects name="objects">
     <objects name="Player">
       <object>objects\oPlayer</object>
+      <object>objects\oPlayerRegion</object>
+      <object>objects\oGoalRegion</object>
+      <object>objects\oControl</object>
     </objects>
     <object>objects\oWall</object>
-    <object>objects\oMassBody</object>
+    <objects name="Obstacles">
+      <object>objects\parMassBody</object>
+      <object>objects\oAsteroid</object>
+      <object>objects\parGravityField</object>
+    </objects>
+    <objects name="GUI">
+      <object>objects\oButton</object>
+      <object>objects\oPlayButton</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\roomTitle</room>
     <room>rooms\room0</room>
+    <room>rooms\rmLevel001</room>
   </rooms>
+  <constants number="2">
+    <constant name="PULL">2</constant>
+    <constant name="PUSH">1</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
