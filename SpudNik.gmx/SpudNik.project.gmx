@@ -6,17 +6,25 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sPlayer</sprite>
-    <sprite>sprites\sWall</sprite>
     <sprite>sprites\sError</sprite>
-    <sprite>sprites\sAstroid</sprite>
-    <sprite>sprites\sButton</sprite>
-    <sprite>sprites\sSpawnPoint</sprite>
-    <sprite>sprites\sprite6</sprite>
-    <sprite>sprites\sprite7</sprite>
+    <sprites name="Player">
+      <sprite>sprites\sPlayer</sprite>
+      <sprite>sprites\sHelmet</sprite>
+      <sprite>sprites\sprite7</sprite>
+      <sprite>sprites\sSpawnPoint</sprite>
+    </sprites>
+    <sprites name="Obstacles">
+      <sprite>sprites\sAstroid</sprite>
+      <sprite>sprites\sWall</sprite>
+    </sprites>
+    <sprites name="GUI">
+      <sprite>sprites\sLevelButton</sprite>
+      <sprite>sprites\sButton</sprite>
+      <sprite>sprites\sprite6</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0</background>
+    <background>background\bgSpace</background>
     <background>background\bgGameName</background>
   </backgrounds>
   <paths name="paths"/>
@@ -24,6 +32,7 @@
     <script>scripts\getStartDir.gml</script>
     <script>scripts\playerMove.gml</script>
     <script>scripts\reachGoal.gml</script>
+    <script>scripts\initLevelMenu.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontButton</font>
@@ -45,13 +54,16 @@
     <objects name="GUI">
       <object>objects\oButton</object>
       <object>objects\oPlayButton</object>
+      <object>objects\oLevelButton</object>
     </objects>
     <object>objects\oMetalBar</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTitle</room>
-    <room>rooms\room0</room>
-    <room>rooms\rmLevel001</room>
+    <room>rooms\rmLevelSelect</room>
+    <rooms name="Levels">
+      <room>rooms\rmLevel001</room>
+    </rooms>
   </rooms>
   <constants number="2">
     <constant name="PULL">2</constant>
