@@ -10,6 +10,7 @@
     <sprite>sprites\sWall</sprite>
     <sprite>sprites\sError</sprite>
     <sprite>sprites\sAstroid</sprite>
+    <sprite>sprites\sGoal</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -17,6 +18,8 @@
     <script>scripts\getStartDir.gml</script>
     <script>scripts\playerMove.gml</script>
     <script>scripts\reachGoal.gml</script>
+    <script>scripts\getSpeed.gml</script>
+    <script>scripts\checkOutOfBounds.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Player">
@@ -24,10 +27,18 @@
     </objects>
     <object>objects\oWall</object>
     <object>objects\oMassBody</object>
+    <object>objects\oGoal</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
+    <room>rooms\room1</room>
   </rooms>
+  <constants number="4">
+    <constant name="WIN">3</constant>
+    <constant name="FLYING">2</constant>
+    <constant name="LAUNCH">1</constant>
+    <constant name="INIT">0</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
