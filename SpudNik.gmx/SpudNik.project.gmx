@@ -46,6 +46,7 @@
       <object>objects\oPlayButton</object>
     </objects>
     <object>objects\oGoal</object>
+    <object>objects\oMetalBar</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTitle</room>
