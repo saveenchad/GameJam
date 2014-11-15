@@ -12,10 +12,16 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\getStartDir.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\oPlayer</object>
     <object>objects\oWall</object>
   </objects>
+  <rooms name="rooms">
+    <room>rooms\room0</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
