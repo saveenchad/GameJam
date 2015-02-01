@@ -29,6 +29,60 @@
 
 direction = getStartDir();
 state = 0;
+
+image_xscale = 1.5;
+image_yscale = 1.5;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>switch (state) {
+    
+    case INIT:
+        speed = 0;
+        x = xstart;
+        y = ystart;
+        direction = getStartDir();
+        image_angle = direction;
+    break;
+    
+    case LAUNCH:
+        speed = getSpeed();
+        state = FLYING;
+    break;
+    
+    case FLYING:
+        //bounce
+        playerMove(speed);
+        image_angle = direction;
+        move_bounce_solid(true);
+    break;
+    
+    case WIN:
+        reachGoal();
+        //load next level
+    break;
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -74,7 +128,62 @@ state = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>state = INIT;
+            <string>if (state != DISABLED)
+{
+    if (instance_number(parGravityField) &gt; 0)
+    {
+        with (parGravityField)
+        {
+            if (owner == PLAYER)
+            {
+                instance_destroy();
+            }
+        }
+    }
+    
+    if (instance_number(oAsteroid) &gt; 0)
+    {
+        with (oAsteroid)
+        {
+            if (owner == PLAYER)
+            {
+                with (gravField)
+                {
+                    instance_destroy();
+                }
+                instance_destroy();
+            }
+        }
+    }
+    
+    image_angle = 180;
+    direction = image_angle;
+    state = INIT;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+draw_sprite_ext(sHelmet,image_index,x,y,image_xscale,image_yscale,image_angle,-1,image_alpha);
 </string>
           </argument>
         </arguments>

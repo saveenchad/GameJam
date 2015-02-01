@@ -26,13 +26,192 @@
           <argument>
             <kind>1</kind>
             <string>/*
-    Variables to set:
-    
-    radius:  How large in pixels is the radius of the field
-    strength: This is the acceleration of the gravity field
-    force: PUSH or PULL
+Variables to set:
+
+radius:  How large in pixels is the radius of the field
+strength: This is the acceleration of the gravity field
+force: PUSH or PULL
 
 */
+
+player = noone;
+
+radius = 128;
+force = PULL;
+distance = 0;
+distScalar = 1;
+gravStrength = 0;
+dir = 0;
+strength = 1;
+
+varRadius = radius;
+
+owner = NOONE;
+state = ACTIVATE;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Animate the radii
+if (force == PULL)
+{
+    if (varRadius &gt; 5)
+    {
+        varRadius -= 5;
+    }
+    else
+    {
+        varRadius = radius * 2;
+    }
+}
+else if (force == PUSH)
+{
+    if (varRadius &lt; radius * 2)
+    {
+        varRadius += 5;
+    }
+    else
+    {
+        varRadius = 1;
+    }
+}
+
+if (state == ACTIVATE)
+{
+    if (instance_exists(oPlayer)) 
+    {
+        if (oPlayer.state != INIT)
+        {
+        //Calculate the strength of the force of gravity
+            distance = distance_to_Object(oPlayer);
+            if (distance &lt; radius * 2.5)
+            {   //LImit the gravity fields to only a certain radius (2.5 x the radius)
+                if (distance &lt; 5)
+                {
+                    distance = 5;
+                }
+                //Get the scalar of the gravity strength
+                distScalar = (radius)/(distance);
+                //Apply the scalar of the gravity strength
+                gravStrength = distScalar * strength;
+                
+                //Get the direction of the gravatational attraction
+                dir = point_direction(x,y,oPlayer.x,oPlayer.y);
+                
+                if (force == PULL)
+                {
+                    dir += 180;
+                }
+                
+                //Subtract the correct components from the speed of the player
+                oPlayer.vspeed += -sin(degtorad(dir))*gravStrength;
+                oPlayer.hspeed += cos(degtorad(dir))*gravStrength;
+            }
+            //BOOM DONE!
+        }
+    }
+}
+else if (owner == PLAYER)
+{
+    x = device_mouse_x(0);
+    y = device_mouse_y(0);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="56">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (owner == PLAYER)
+{
+    state = ACTIVATE;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (owner == PLAYER)
+{
+    state = DEACTIVATE;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_color(c_blue); 
+draw_circle(x,y,radius,true);
+draw_set_color(c_white);
+draw_circle(x,y,varRadius,true);
 </string>
           </argument>
         </arguments>

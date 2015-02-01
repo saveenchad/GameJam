@@ -6,28 +6,39 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\mscMenu</sound>
+    <sound>sound\mscLevelSelect</sound>
+    <sound>sound\sndClick</sound>
+    <sound>sound\sndClick2</sound>
+    <sound>sound\mscDrumRoll</sound>
+    <sound>sound\mscFailure</sound>
+    <sound>sound\mscLevel2</sound>
+    <sound>sound\mscLevel1</sound>
+    <sound>sound\mscWin</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sError</sprite>
     <sprites name="Player">
       <sprite>sprites\sPlayer</sprite>
       <sprite>sprites\sHelmet</sprite>
-      <sprite>sprites\sprite7</sprite>
+      <sprite>sprites\sGoal</sprite>
       <sprite>sprites\sSpawnPoint</sprite>
     </sprites>
     <sprites name="Obstacles">
       <sprite>sprites\sAstroid</sprite>
-      <sprite>sprites\sWall</sprite>
+      <sprite>sprites\sGirder</sprite>
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\sLevelButton</sprite>
       <sprite>sprites\sButton</sprite>
       <sprite>sprites\sprite6</sprite>
     </sprites>
+    <sprite>sprites\sGameTitle</sprite>
+    <sprite>sprites\sToolbar</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\bgSpace</background>
-    <background>background\bgGameName</background>
+    <background>background\bgSpace1</background>
+    <background>background\bgSpace2</background>
+    <background>background\bgSpace3</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -35,6 +46,12 @@
     <script>scripts\playerMove.gml</script>
     <script>scripts\reachGoal.gml</script>
     <script>scripts\initLevelMenu.gml</script>
+    <script>scripts\getSpeed.gml</script>
+    <script>scripts\createPlayer.gml</script>
+    <script>scripts\createGoal.gml</script>
+    <script>scripts\distance_to_Object.gml</script>
+    <script>scripts\createParticleSys.gml</script>
+    <script>scripts\createCommetSys.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontButton</font>
@@ -42,16 +59,16 @@
   <objects name="objects">
     <objects name="Player">
       <object>objects\oPlayer</object>
+      <object>objects\oGoal</object>
       <object>objects\oPlayerRegion</object>
       <object>objects\oGoalRegion</object>
       <object>objects\oControl</object>
-      <object>objects\oGoal</object>
     </objects>
-    <object>objects\oWall</object>
     <objects name="Obstacles">
       <object>objects\parMassBody</object>
       <object>objects\oAsteroid</object>
       <object>objects\parGravityField</object>
+      <object>objects\oGirder</object>
     </objects>
     <objects name="GUI">
       <object>objects\oButton</object>
@@ -59,17 +76,43 @@
       <object>objects\oLevelButton</object>
     </objects>
     <object>objects\oMetalBar</object>
+    <objects name="Other">
+      <object>objects\opControl</object>
+      <object>objects\oGameTitle</object>
+    </objects>
+    <objects name="Tools">
+      <object>objects\parTool</object>
+      <object>objects\oToolAsteroid</object>
+      <object>objects\oToolPush</object>
+      <object>objects\oToolPull</object>
+      <object>objects\oToolGirder</object>
+      <object>objects\oToolStart</object>
+    </objects>
+    <objects name="Doodads">
+      <object>objects\oCommet</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTitle</room>
     <room>rooms\rmLevelSelect</room>
     <rooms name="Levels">
       <room>rooms\rmLevel001</room>
+      <room>rooms\rmLevel002</room>
+      <room>rooms\rmLevel003</room>
     </rooms>
   </rooms>
-  <constants number="2">
-    <constant name="PULL">2</constant>
-    <constant name="PUSH">1</constant>
+  <constants number="11">
+    <constant name="DISABLED">-1</constant>
+    <constant name="PLAYER">1</constant>
+    <constant name="NOONE">0</constant>
+    <constant name="ACTIVATE">1</constant>
+    <constant name="DEACTIVATE">0</constant>
+    <constant name="WIN">3</constant>
+    <constant name="FLYING">2</constant>
+    <constant name="LAUNCH">1</constant>
+    <constant name="INIT">0</constant>
+    <constant name="PULL">1</constant>
+    <constant name="PUSH">-1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

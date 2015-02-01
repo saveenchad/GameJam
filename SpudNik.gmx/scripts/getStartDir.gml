@@ -1,11 +1,13 @@
-/*
-    Where it's called
+	/*
+		called in
+			oPlayer create event
+			oPlayer step event > case FLYING
     
-    Parameters:
+		no parameters
     
-    Returns:
+		returns the initial direction that Spudnik travels in
     
-    What it does:
-*/
+		Sets Spudnik's initial direction
+	*/
 
 return 0;

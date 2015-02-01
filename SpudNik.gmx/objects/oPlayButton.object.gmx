@@ -50,7 +50,7 @@ text = "Play";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rmLevel001);
+            <string>room_goto(rmLevelSelect);
 </string>
           </argument>
         </arguments>
